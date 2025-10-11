@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="BSM322_Calculator.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BSM322_Calculator"
+    Title="BSM322_Calculator">
+
+    <ShellContent
+        x:Name="Standard"
+        Title="Standard"
+        ContentTemplate="{DataTemplate local:Pages.StandardPage}"
+        Route="StandardPage" />
+
+    <ShellContent
+        x:Name="Scientific"
+        Title="Scientific"
+        ContentTemplate="{DataTemplate local:Pages.ScientificPage}"
+        Route="ScientificPage" />
+
+</Shell>
