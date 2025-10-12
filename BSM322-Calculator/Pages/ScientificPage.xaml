@@ -3,10 +3,150 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BSM322_Calculator.Pages.ScientificPage"
              Title="Scientific">
-    <VerticalStackLayout>
-        <Label 
-            Text="ScientificUI"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowSpacing="8" ColumnSpacing="8" Padding="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Entry x:Name="OperationEntry"
+               Grid.Row="0"
+               HorizontalTextAlignment="End"
+               IsReadOnly="True"
+               FontSize="18"/>
+
+        <Entry x:Name="ResultEntry"
+               Grid.Row="1"
+               Text="0"
+               HorizontalTextAlignment="End"
+               IsReadOnly="True"
+               FontSize="50"/>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="8">
+
+            <Grid RowSpacing="4"  ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="DEG" Clicked="DegClickEvent"/>
+                <Button Grid.Column="1" Text="F-E" Clicked="FEClickEvent"/>
+            </Grid>
+
+            <Grid RowSpacing="4" ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Text="MC" Clicked="MemoryClickEvent" HeightRequest="36"/>
+                <Button Grid.Column="1" Text="MR" Clicked="MemoryClickEvent" HeightRequest="36"/>
+                <Button Grid.Column="2" Text="M+" Clicked="MemoryClickEvent" HeightRequest="36"/>
+                <Button Grid.Column="3" Text="M-" Clicked="MemoryClickEvent" HeightRequest="36"/>
+                <Button Grid.Column="4" Text="MS" Clicked="MemoryClickEvent" HeightRequest="36"/>
+                <Button Grid.Column="5" Text="M↓" Clicked="MemoryClickEvent" HeightRequest="36"/>
+            </Grid>
+
+            <HorizontalStackLayout Spacing="8">
+                <Picker x:Name="TrigPicker" Title="◺ Trigonometry" WidthRequest="160">
+                    <Picker.Items>
+                        <x:String>sin</x:String>
+                        <x:String>cos</x:String>
+                        <x:String>tan</x:String>
+                        <x:String>cot</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="FuncPicker" Title="⨍ Function" WidthRequest="160">
+                    <Picker.Items>
+                        <x:String>log</x:String>
+                        <x:String>ln</x:String>
+                        <x:String>exp</x:String>
+                        <x:String>abs</x:String>
+                    </Picker.Items>
+                </Picker>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="3"
+              RowSpacing="6" ColumnSpacing="6">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Text="2nd" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="π" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="e" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="C" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="4" Text="⌫" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="x²" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="1/x" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="|x|" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="3" Text="exp" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="4" Text="mod" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="√" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="(" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="2" Text=")" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="3" Text="n!" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="4" Text="÷" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="xʸ" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="7" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="8" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="3" Text="9" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="4" Text="×" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="10^x" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="4" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="2" Text="5" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="3" Text="6" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="4" Text="−" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="5" Grid.Column="0" Text="log" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="1" Text="1" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="2" Text="2" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="3" Text="3" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="4" Text="+" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="6" Grid.Column="0" Text="ln" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="6" Grid.Column="1" Text="±" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="6" Grid.Column="2" Text="0" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="6" Grid.Column="3" Text="," Clicked="NumberClickEvent"/>
+            <Button Grid.Row="6" Grid.Column="4" Text="=" Clicked="OperatorClickEvent"/>
+        </Grid>
+    </Grid>
 </ContentPage>
