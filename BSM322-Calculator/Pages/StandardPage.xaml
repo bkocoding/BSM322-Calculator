@@ -3,10 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BSM322_Calculator.Pages.StandardPage"
              Title="Standard">
-    <VerticalStackLayout>
-        <Label 
-            Text="StandardUI"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowSpacing="8" ColumnSpacing="8" Padding="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Entry x:Name="OperationEntry"
+               Grid.Row="0"
+               HorizontalTextAlignment="End"
+               IsReadOnly="True"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+        <Entry x:Name="ResultEntry"
+               Grid.Row="1"
+               Text="0"
+               HorizontalTextAlignment="End"
+               FontSize="50"
+               IsReadOnly="True"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+        <Grid Grid.Row="2" RowSpacing="5" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="MC" Clicked="MemoryClickEvent"/>
+            <Button Grid.Column="1" Text="MR" Clicked="MemoryClickEvent"/>
+            <Button Grid.Column="2" Text="M+" Clicked="MemoryClickEvent"/>
+            <Button Grid.Column="3" Text="M-" Clicked="MemoryClickEvent"/>
+            <Button Grid.Column="4" Text="MS" Clicked="MemoryClickEvent"/>
+            <Button Grid.Column="5" Text="M↓" Clicked="MemoryClickEvent"/>
+        </Grid>
+
+        <Grid Grid.Row="3" RowSpacing="5" ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Text="%" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="CE" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="C" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="⌫" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="1/x" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="x²" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="√" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="1" Grid.Column="3" Text="÷" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="7" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="8" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="9" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="2" Grid.Column="3" Text="×" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="4" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="5" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="6" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="3" Grid.Column="3" Text="−" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="1" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="2" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="2" Text="3" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="4" Grid.Column="3" Text="+" Clicked="OperatorClickEvent"/>
+
+            <Button Grid.Row="5" Grid.Column="0" Text="±" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="1" Text="0" Clicked="NumberClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="2" Text="," Clicked="NumberClickEvent"/>
+            <Button Grid.Row="5" Grid.Column="3" Text="=" Clicked="OperatorClickEvent"/>
+        </Grid>
+    </Grid>
 </ContentPage>
