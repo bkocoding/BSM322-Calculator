@@ -7,9 +7,13 @@
     <Grid RowSpacing="8" ColumnSpacing="8" Padding="10">
 
         <Grid.RowDefinitions>
+            <!--OPERATION ENTRY-->
             <RowDefinition Height="*" />
+            <!--RESULT ENTRY-->
             <RowDefinition Height="2*" />
+            <!--MEMORY & FUNCTION BUTTONS-->
             <RowDefinition Height="Auto" />
+            <!--BUTTONS-->
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
 
@@ -17,6 +21,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--ENTRIES-->
         <Entry x:Name="OperationEntry"
                Grid.Row="0"
                HorizontalTextAlignment="End"
@@ -28,10 +33,11 @@
                Text="0"
                HorizontalTextAlignment="End"
                IsReadOnly="True"
-               FontSize="50"/>
+               FontSize="50" TextChanged="ResultEntryTextChanged"/>
 
+        <!--MEMORY & FUNCTION CHANGE BUTTONS-->
         <VerticalStackLayout Grid.Row="2" Spacing="8">
-
+            <!-- FUNCTION CHANGE BUTTONS -->
             <Grid RowSpacing="4"  ColumnSpacing="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -45,6 +51,7 @@
                 <Button Grid.Column="1" Text="F-E" Clicked="FEClickEvent"/>
             </Grid>
 
+            <!--MEMORY BUTTONS-->
             <Grid RowSpacing="4" ColumnSpacing="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -63,29 +70,56 @@
                 <Button Grid.Column="5" Text="M↓" Clicked="MemoryClickEvent" HeightRequest="36"/>
             </Grid>
 
+            <!--TRIGONOMETRY AND FUNCTION PICKERS-->
             <HorizontalStackLayout Spacing="8">
-                <Picker x:Name="TrigPicker" Title="◺ Trigonometry" WidthRequest="160">
+                <Picker x:Name="TrigPicker" Title="◺ Trigonometry" WidthRequest="120" SelectedIndexChanged="TrigPicker_SelectedIndexChanged">
                     <Picker.Items>
                         <x:String>sin</x:String>
                         <x:String>cos</x:String>
                         <x:String>tan</x:String>
                         <x:String>cot</x:String>
+                        <x:String>csc</x:String>
+                        <x:String>sec</x:String>
+
+                        <x:String>sin^-1</x:String>
+                        <x:String>cos^-1</x:String>
+                        <x:String>tan^-1</x:String>
+                        <x:String>cot^-1</x:String>
+                        <x:String>csc^-1</x:String>
+                        <x:String>sec^-1</x:String>
+
+                        <x:String>sinh</x:String>
+                        <x:String>cosh</x:String>
+                        <x:String>tanh</x:String>
+                        <x:String>coth</x:String>
+                        <x:String>csch</x:String>
+                        <x:String>sech</x:String>
+
+                        <x:String>sinh^-1</x:String>
+                        <x:String>cosh^-1</x:String>
+                        <x:String>tanh^-1</x:String>
+                        <x:String>coth^-1</x:String>
+                        <x:String>csch^-1</x:String>
+                        <x:String>sech^-1</x:String>
                     </Picker.Items>
                 </Picker>
 
-                <Picker x:Name="FuncPicker" Title="⨍ Function" WidthRequest="160">
+                <Picker x:Name="FuncPicker" Title="⨍ Function" WidthRequest="120" SelectedIndexChanged="FuncPicker_SelectedIndexChanged">
                     <Picker.Items>
-                        <x:String>log</x:String>
-                        <x:String>ln</x:String>
-                        <x:String>exp</x:String>
-                        <x:String>abs</x:String>
+                        <x:String>|x|</x:String>
+                        <x:String>⌊x⌋</x:String>
+                        <x:String>⌈x⌉</x:String>
+                        <x:String>rand</x:String>
+                        <x:String>→dms</x:String>
+                        <x:String>→deg</x:String>
                     </Picker.Items>
                 </Picker>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>
 
-        <Grid Grid.Row="3"
+        <!--BUTTONS-->
+        <Grid x:Name="MainMatrixGrid" Grid.Row="3"
               RowSpacing="6" ColumnSpacing="6">
 
             <Grid.RowDefinitions>
@@ -106,10 +140,10 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="2nd" Clicked="OperatorClickEvent"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="2nd" Clicked="SecondButtonClickEvent"/>
             <Button Grid.Row="0" Grid.Column="1" Text="π" Clicked="OperatorClickEvent"/>
             <Button Grid.Row="0" Grid.Column="2" Text="e" Clicked="OperatorClickEvent"/>
-            <Button Grid.Row="0" Grid.Column="3" Text="C" Clicked="OperatorClickEvent"/>
+            <Button x:Name="ClearButton" Grid.Row="0" Grid.Column="3" Text="C" Clicked="OperatorClickEvent"/>
             <Button Grid.Row="0" Grid.Column="4" Text="⌫" Clicked="OperatorClickEvent"/>
 
             <Button Grid.Row="1" Grid.Column="0" Text="x²" Clicked="OperatorClickEvent"/>
