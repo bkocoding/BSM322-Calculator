@@ -7,9 +7,13 @@
     <Grid RowSpacing="8" ColumnSpacing="8" Padding="10">
 
         <Grid.RowDefinitions>
+            <!--OPERATION ENTRY-->
             <RowDefinition Height="*" />
+            <!--RESULT ENTRY-->
             <RowDefinition Height="2*" />
+            <!--MEMORY BUTTONS-->
             <RowDefinition Height="Auto" />
+            <!--BUTTONS-->
             <RowDefinition Height="6*" />
         </Grid.RowDefinitions>
 
@@ -17,6 +21,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--ENTRIES-->
         <Entry x:Name="OperationEntry"
                Grid.Row="0"
                HorizontalTextAlignment="End"
@@ -33,6 +38,7 @@
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
 
+        <!--MEMORY BUTTONS-->
         <Grid Grid.Row="2" RowSpacing="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -54,6 +60,7 @@
             <Button Grid.Column="5" Text="M↓" Clicked="MemoryClickEvent"/>
         </Grid>
 
+        <!--BUTTONS-->
         <Grid Grid.Row="3" RowSpacing="5" ColumnSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

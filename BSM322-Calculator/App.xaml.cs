@@ -9,7 +9,13 @@
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            Window window = new(new AppShell())
+            {
+                Title = "BKO Calculator",
+                Width = 450,
+                Height = 900
+            };
+            return window;
         }
     }
 }
